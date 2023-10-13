@@ -4,7 +4,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 function App() {
   return (
     <>
-      <div className="max-w-7xl mx-auto flex justify-center">
+      <div className="max-w-7xl mx-auto flex justify-center py-6">
         <ul className="flex gap-6">
           <li>
             <NavLink
