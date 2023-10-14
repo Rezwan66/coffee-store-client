@@ -26,16 +26,6 @@ function App() {
               Add Coffee
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/updateCoffee"
-              className={({ isActive, isPending }) =>
-                isPending ? 'pending' : isActive ? 'bg-purple-300' : ''
-              }
-            >
-              Update a Coffee
-            </NavLink>
-          </li>
         </ul>
       </div>
       <Outlet></Outlet>

@@ -1,6 +1,7 @@
 import { FaEye, FaPen } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line
 const CoffeeCard = ({ coffee }) => {
   // eslint-disable-next-line
@@ -66,9 +67,11 @@ const CoffeeCard = ({ coffee }) => {
             <button className="btn btn-primary join-item">
               <FaEye></FaEye>
             </button>
-            <button className="btn btn-neutral join-item">
-              <FaPen></FaPen>
-            </button>
+            <Link to={`/updateCoffee/${_id}`}>
+              <button className="btn btn-neutral join-item">
+                <FaPen></FaPen>
+              </button>
+            </Link>
             <button
               onClick={() => handleDelete(_id)}
               className="btn btn-error join-item text-white"
