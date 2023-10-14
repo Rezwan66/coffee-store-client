@@ -3,7 +3,7 @@ import { AiFillDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   // eslint-disable-next-line
   const { _id, name, quantity, supplier, taste, category, details, photo } =
     coffee;
@@ -30,6 +30,9 @@ const CoffeeCard = ({ coffee }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire('Deleted!', 'Your coffee has been deleted.', 'success');
+              // eslint-disable-next-line
+              const remaining = coffees.filter(c => c._id !== _id);
+              setCoffees(remaining);
             }
           });
       }
