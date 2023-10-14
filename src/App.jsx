@@ -26,6 +26,36 @@ function App() {
               Add Coffee
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/signup"
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'bg-purple-300' : ''
+              }
+            >
+              Sign Up
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/signin"
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'bg-purple-300' : ''
+              }
+            >
+              Sign In
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/users"
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'bg-purple-300' : ''
+              }
+            >
+              Users
+            </NavLink>
+          </li>
         </ul>
       </div>
       <Outlet></Outlet>
