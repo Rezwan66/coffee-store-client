@@ -1,8 +1,40 @@
 import { FaEye, FaPen } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
-
+import Swal from 'sweetalert2';
+// eslint-disable-next-line
 const CoffeeCard = ({ coffee }) => {
-  const { name, quantity, supplier, taste, category, details, photo } = coffee;
+  // eslint-disable-next-line
+  const { _id, name, quantity, supplier, taste, category, details, photo } =
+    coffee;
+
+  const handleDelete = _id => {
+    console.log(_id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(result => {
+      if (result.isConfirmed) {
+        // Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        console.log('delete confirmed');
+        fetch(`http://localhost:5000/coffee/${_id}`, {
+          method: 'DELETE',
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire('Deleted!', 'Your coffee has been deleted.', 'success');
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="card card-side h-72 bg-base-100 shadow-xl text-left">
@@ -37,7 +69,10 @@ const CoffeeCard = ({ coffee }) => {
             <button className="btn btn-neutral join-item">
               <FaPen></FaPen>
             </button>
-            <button className="btn btn-error join-item text-white">
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-error join-item text-white"
+            >
               <AiFillDelete></AiFillDelete>
             </button>
           </div>
