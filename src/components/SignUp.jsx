@@ -41,8 +41,8 @@ const SignUp = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-10">
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero min-h-screen bg-[#F4F3F0]">
+        <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Sign Up Now!</h1>
           </div>

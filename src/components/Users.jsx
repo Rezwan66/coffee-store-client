@@ -61,7 +61,7 @@ const Users = () => {
                   <th>{idx + 1}</th>
                   <td>{user.email}</td>
                   <td>{user.createdAt}</td>
-                  <td>days ago</td>
+                  <td>{user?.lastLoggedAt}</td>
                   <td>
                     <button
                       onClick={() => handleDelete(user._id)}
