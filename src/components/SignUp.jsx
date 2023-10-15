@@ -16,13 +16,16 @@ const SignUp = () => {
         // new user has been created here
         const createdAt = res.user.metadata.creationTime;
         const user = { email, createdAt };
-        fetch('http://localhost:5000/users', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(user),
-        })
+        fetch(
+          'https://coffee-store-server-j15jfl3t0-shaikh-rezwans-projects.vercel.app/users',
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(user),
+          }
+        )
           .then(res => res.json())
           .then(data => {
             console.log(data);

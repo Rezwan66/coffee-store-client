@@ -19,9 +19,12 @@ const Users = () => {
     }).then(result => {
       if (result.isConfirmed) {
         // Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
-        fetch(`http://localhost:5000/users/${_id}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://coffee-store-server-j15jfl3t0-shaikh-rezwans-projects.vercel.app/users/${_id}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then(res => res.json())
           .then(data => {
             console.log(data);
@@ -56,7 +59,7 @@ const Users = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {users.map((user, idx) => (
+              {users?.map((user, idx) => (
                 <tr key={user._id}>
                   <th>{idx + 1}</th>
                   <td>{user.email}</td>
